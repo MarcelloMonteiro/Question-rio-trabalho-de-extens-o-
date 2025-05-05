@@ -50,6 +50,20 @@
             cursor: pointer;
             color: #dc3545;
         }
+        .tributos-item {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .remove-tributos {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            color: #dc3545;
+        }
     </style>
 </head>
 <body>
@@ -446,6 +460,15 @@
                         <input type="date" class="form-control mt-2" id="satVencimento" name="satVencimento" placeholder="Data de vencimento">
                     </div>
                 </div>
+
+                <h5 class="mt-4">Adicionar tributos</h5>
+                <div id="tributos-adicionais-container">
+                    <!-- Itens serão adicionados dinamicamente aqui -->
+                </div>
+                
+                <button type="button" class="btn btn-outline-primary mt-3" id="adicionar-tributos">
+                    <i class="bi bi-plus"></i> Adicionar tributos
+                </button>
             </div>
             
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
@@ -520,6 +543,38 @@
             
             // Adiciona o evento de formatação para o novo campo de valor
             novoBem.querySelector('[data-type="currency"]').addEventListener('input', formatCurrency);
+        });
+
+        // Adicionar tributos dinamicamente
+        let tributosCount = 0;
+        document.getElementById('adicionar-tributos').addEventListener('click', function() {
+            tributosCount++;
+            const container = document.getElementById('tributos-adicionais-container');
+            const novotributos = document.createElement('div');
+            novotributos.className = 'tributos-item';
+            novotributos.innerHTML = `
+                <span class="remove-tributos" onclick="this.parentElement.remove()">×</span>
+                <div class="mb-3">
+                    <label for="tributosNome${tributosCount}" class="form-label">Nome do tributos</label>
+                    <input type="text" class="form-control" id="tributosNome${tributosCount}" name="tributosAdicionais[${tributosCount}][nome]" required>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="tributosValor${tributosCount}" class="form-label">Valor</label>
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="tributosValor${tributosCount}" name="tributosAdicionais[${tributosCount}][valor]" data-type="currency" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="tributosData${tributosCount}" class="form-label">Data de aquisição</label>
+                        <input type="date" class="form-control" id="tributosData${tributosCount}" name="tributosAdicionais[${tributosCount}][data]" required>
+                    </div>
+                </div>
+            `;
+            container.appendChild(novotributos);
+            
+            // Adiciona o evento de formatação para o novo campo de valor
+            novotributos.querySelector('[data-type="currency"]').addEventListener('input', formatCurrency);
         });
     </script>
 </body>
