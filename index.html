@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de Contabilidade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-section {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .form-title {
+            color: #0d6efd;
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .required-field::after {
+            content: " *";
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Questionário Trabalho de Extensão</h1>
+        <p class="text-center mb-5">Essa parte do trabalho será baseado nos princípios da contabilidade: Entidade, Continuidade, Oportunidade, Registro pelo valor original e Competência.</p>
+        
+        <form action="https://formsubmit.co/seu-email@exemplo.com" method="POST">
+            <input type="hidden" name="_subject" value="Novo Questionário de Contabilidade">
+            <input type="hidden" name="_template" value="table">
+            
+            <!-- Seção 1: Informações Básicas -->
+            <div class="form-section">
+                <h2 class="form-title">Informações Básicas da Empresa</h2>
+                
+                <div class="mb-3">
+                    <label for="nomeEmpresa" class="form-label required-field">Nome da Empresa</label>
+                    <input type="text" class="form-control" id="nomeEmpresa" name="nomeEmpresa" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="cnpj" class="form-label required-field">CNPJ</label>
+                    <input type="text" class="form-control" id="cnpj" name="cnpj" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="endereco" class="form-label required-field">Endereço</label>
+                    <input type="text" class="form-control" id="endereco" name="endereco" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label required-field">Regime Tributário</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="regimeTributario" id="mei" value="MEI" required>
+                        <label class="form-check-label" for="mei">MEI</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="regimeTributario" id="simples" value="Simples Nacional">
+                        <label class="form-check-label" for="simples">Simples Nacional</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="regimeTributario" id="presumido" value="Lucro Presumido">
+                        <label class="form-check-label" for="presumido">Lucro Presumido</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="regimeTributario" id="real" value="Lucro Real">
+                        <label class="form-check-label" for="real">Lucro Real</label>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="atividades" class="form-label required-field">Quais as atividades desenvolvidas pela empresa?</label>
+                    <textarea class="form-control" id="atividades" name="atividades" rows="3" required></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="empregados" class="form-label">A empresa possui empregados? Quantos?</label>
+                    <input type="text" class="form-control" id="empregados" name="empregados">
+                </div>
+            </div>
+            
+            <!-- Seção 2: Serviços Contábeis -->
+            <div class="form-section">
+                <h2 class="form-title">Serviços Contábeis</h2>
+                
+                <div class="mb-3">
+                    <label class="form-label">Utiliza algum serviço de contabilidade?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="servicoContabilidade" id="contabilidadeSim" value="Sim">
+                        <label class="form-check-label" for="contabilidadeSim">Sim</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="servicoContabilidade" id="contabilidadeNao" value="Não">
+                        <label class="form-check-label" for="contabilidadeNao">Não</label>
+                    </div>
+                    <div class="mt-2" id="qualContabilidadeDiv" style="display: none;">
+                        <label for="qualContabilidade" class="form-label">Qual?</label>
+                        <input type="text" class="form-control" id="qualContabilidade" name="qualContabilidade">
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">A empresa utiliza algum sistema de controle de entrada, saída e estoque de mercadoria? O registro é realizado com tempestividade no estoque da empresa?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sistemaControle" id="sistemaSim" value="Sim">
+                        <label class="form-check-label" for="sistemaSim">Sim</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sistemaControle" id="sistemaNao" value="Não">
+                        <label class="form-check-label" for="sistemaNao">Não</label>
+                    </div>
+                    <div class="mt-2" id="qualSistemaDiv" style="display: none;">
+                        <label for="qualSistema" class="form-label">Qual?</label>
+                        <input type="text" class="form-control" id="qualSistema" name="qualSistema">
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">A empresa possui conta separada das contas dos sócios?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="contaSeparada" id="contaSim" value="Sim">
+                        <label class="form-check-label" for="contaSim">Sim</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="contaSeparada" id="contaNao" value="Não">
+                        <label class="form-check-label" for="contaNao">Não</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção 3: Continuidade -->
+            <div class="form-section">
+                <h2 class="form-title">Continuidade da Empresa</h2>
+                
+                <div class="mb-3">
+                    <label for="objetivosLongoPrazo" class="form-label">Quais objetivos da empresa a longo prazo?</label>
+                    <textarea class="form-control" id="objetivosLongoPrazo" name="objetivosLongoPrazo" rows="3"></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="planejamentoContinuidade" class="form-label">Como a empresa planeja manter sua continuidade em casos de reflexos financeiros negativos?</label>
+                    <textarea class="form-control" id="planejamentoContinuidade" name="planejamentoContinuidade" rows="3"></textarea>
+                </div>
+            </div>
+            
+            <!-- Seção 4: Registros -->
+            <div class="form-section">
+                <h2 class="form-title">Registros de Compra e Venda</h2>
+                
+                <div class="mb-3">
+                    <label for="registrosCompraVenda" class="form-label">Como e quando ocorrem os registros de compra e venda da empresa (informar de forma detalhada):</label>
+                    <textarea class="form-control" id="registrosCompraVenda" name="registrosCompraVenda" rows="3"></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">Qual o valor de registro da compra do produto:</label>
+                    <div class="mb-2">
+                        <label class="form-label">É registrado apenas o valor pelo qual foi comprado:</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="registroValorCompra" id="valorCompraSim" value="Sim">
+                            <label class="form-check-label" for="valorCompraSim">Sim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="registroValorCompra" id="valorCompraNao" value="Não">
+                            <label class="form-check-label" for="valorCompraNao">Não</label>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="form-label">É adicionado valores como frete e montagem:</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="adicionaFreteMontagem" id="freteSim" value="Sim">
+                            <label class="form-check-label" for="freteSim">Sim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="adicionaFreteMontagem" id="freteNao" value="Não">
+                            <label class="form-check-label" for="freteNao">Não</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção 5: Escrituração Contábil -->
+            <div class="form-section">
+                <h2 class="form-title">Escrituração Contábil</h2>
+                
+                <div class="mb-3">
+                    <label class="form-label">Caso a empresa tenha serviços de contabilidade, realiza escrituração contábil?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="escrituracao" id="escrituracaoSim" value="Sim">
+                        <label class="form-check-label" for="escrituracaoSim">Sim</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="escrituracao" id="escrituracaoNao" value="Não">
+                        <label class="form-check-label" for="escrituracaoNao">Não</label>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="fontesReceita" class="form-label">Quais as fontes de receitas da empresa?</label>
+                    <textarea class="form-control" id="fontesReceita" name="fontesReceita" rows="3"></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">As receitas e despesas da empresa são reconhecidas no período em que são realizadas?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="reconhecimentoPeriodo" id="reconhecimentoSim" value="Sim">
+                        <label class="form-check-label" for="reconhecimentoSim">Sim</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="reconhecimentoPeriodo" id="reconhecimentoNao" value="Não">
+                        <label class="form-check-label" for="reconhecimentoNao">Não</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção 6: Bens e Direitos -->
+            <div class="form-section">
+                <h2 class="form-title">Bens e Direitos</h2>
+                
+                <div class="mb-3">
+                    <label for="bensMoveis" class="form-label">A empresa possui bens imóveis registrados no seu CNPJ? Qual?</label>
+                    <input type="text" class="form-control" id="bensMoveis" name="bensMoveis">
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="valorMoveis" class="form-label">Qual o valor monetário?</label>
+                        <input type="text" class="form-control" id="valorMoveis" name="valorMoveis">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dataAquisicaoMoveis" class="form-label">Data de aquisição:</label>
+                        <input type="date" class="form-control" id="dataAquisicaoMoveis" name="dataAquisicaoMoveis">
+                    </div>
+                </div>
+                
+                <h5 class="mt-4">Equipamentos registrados no CNPJ:</h5>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="computadoresValor" class="form-label">Computadores:</label>
+                        <input type="text" class="form-control" id="computadoresValor" name="computadoresValor" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="computadoresData" name="computadoresData" placeholder="Data de aquisição">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="impressorasValor" class="form-label">Impressoras:</label>
+                        <input type="text" class="form-control" id="impressorasValor" name="impressorasValor" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="impressorasData" name="impressorasData" placeholder="Data de aquisição">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="cadeirasValor" class="form-label">Cadeiras:</label>
+                        <input type="text" class="form-control" id="cadeirasValor" name="cadeirasValor" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="cadeirasData" name="cadeirasData" placeholder="Data de aquisição">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="mesasValor" class="form-label">Mesas:</label>
+                        <input type="text" class="form-control" id="mesasValor" name="mesasValor" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="mesasData" name="mesasData" placeholder="Data de aquisição">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="telefonesValor" class="form-label">Telefones:</label>
+                        <input type="text" class="form-control" id="telefonesValor" name="telefonesValor" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="telefonesData" name="telefonesData" placeholder="Data de aquisição">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="saldoConta" class="form-label">Saldo em conta:</label>
+                        <input type="text" class="form-control" id="saldoConta" name="saldoConta" placeholder="Valor">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="aplicacoesFinanceiras" class="form-label">Aplicações financeiras:</label>
+                        <input type="text" class="form-control" id="aplicacoesFinanceiras" name="aplicacoesFinanceiras" placeholder="Valor">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="estoqueValor" class="form-label">Estoque:</label>
+                        <input type="text" class="form-control" id="estoqueValor" name="estoqueValor" placeholder="Valor">
+                    </div>
+                </div>
+                
+                <h5 class="mt-4">Outros direitos:</h5>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="duplicataReceber" class="form-label">Duplicata a receber:</label>
+                        <input type="text" class="form-control" id="duplicataReceber" name="duplicataReceber" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="duplicataData" name="duplicataData" placeholder="Data de recebimento">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="contasReceber" class="form-label">Contas a receber:</label>
+                        <input type="text" class="form-control" id="contasReceber" name="contasReceber" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="contasData" name="contasData" placeholder="Data de recebimento">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="impostosRecuperar" class="form-label">Impostos a recuperar:</label>
+                        <input type="text" class="form-control" id="impostosRecuperar" name="impostosRecuperar" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="impostosData" name="impostosData" placeholder="Data de recebimento">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção 7: Obrigações -->
+            <div class="form-section">
+                <h2 class="form-title">Obrigações</h2>
+                
+                <h5>Dívidas com Banco:</h5>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="financiamentos" class="form-label">Financiamentos:</label>
+                        <input type="text" class="form-control" id="financiamentos" name="financiamentos" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="financiamentosVencimento" name="financiamentosVencimento" placeholder="Data de vencimento">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="emprestimos" class="form-label">Empréstimos:</label>
+                        <input type="text" class="form-control" id="emprestimos" name="emprestimos" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="emprestimosVencimento" name="emprestimosVencimento" placeholder="Data de vencimento">
+                    </div>
+                </div>
+                
+                <h5 class="mt-4">Contas a pagar:</h5>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="agua" class="form-label">Água:</label>
+                        <input type="text" class="form-control" id="agua" name="agua" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="aguaVencimento" name="aguaVencimento" placeholder="Data de vencimento">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="energia" class="form-label">Energia:</label>
+                        <input type="text" class="form-control" id="energia" name="energia" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="energiaVencimento" name="energiaVencimento" placeholder="Data de vencimento">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="aluguel" class="form-label">Aluguel:</label>
+                        <input type="text" class="form-control" id="aluguel" name="aluguel" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="aluguelVencimento" name="aluguelVencimento" placeholder="Data de vencimento">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="salarios" class="form-label">Salários de funcionários:</label>
+                        <input type="text" class="form-control" id="salarios" name="salarios" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="salariosVencimento" name="salariosVencimento" placeholder="Data de vencimento">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="fornecedores" class="form-label">Fornecedores:</label>
+                        <input type="text" class="form-control" id="fornecedores" name="fornecedores" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="fornecedoresVencimento" name="fornecedoresVencimento" placeholder="Data de vencimento">
+                    </div>
+                </div>
+                
+                <h5 class="mt-4">Impostos a pagar:</h5>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="inss" class="form-label">INSS:</label>
+                        <input type="text" class="form-control" id="inss" name="inss" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="inssVencimento" name="inssVencimento" placeholder="Data de vencimento">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="fgts" class="form-label">FGTS:</label>
+                        <input type="text" class="form-control" id="fgts" name="fgts" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="fgtsVencimento" name="fgtsVencimento" placeholder="Data de vencimento">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="sat" class="form-label">SAT:</label>
+                        <input type="text" class="form-control" id="sat" name="sat" placeholder="Valor">
+                        <input type="date" class="form-control mt-2" id="satVencimento" name="satVencimento" placeholder="Data de vencimento">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
+                <button type="reset" class="btn btn-secondary me-md-2">Limpar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mostrar/ocultar campos condicionais
+        document.querySelector('input[name="servicoContabilidade"]').addEventListener('change', function() {
+            const qualDiv = document.getElementById('qualContabilidadeDiv');
+            if (this.value === 'Sim' && this.checked) {
+                qualDiv.style.display = 'block';
+            } else {
+                qualDiv.style.display = 'none';
+            }
+        });
+        
+        document.querySelector('input[name="sistemaControle"]').addEventListener('change', function() {
+            const qualDiv = document.getElementById('qualSistemaDiv');
+            if (this.value === 'Sim' && this.checked) {
+                qualDiv.style.display = 'block';
+            } else {
+                qualDiv.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
