@@ -22,6 +22,34 @@
             content: " *";
             color: red;
         }
+        .money-input {
+            position: relative;
+        }
+        .money-input::before {
+            content: "R$";
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        .money-input input {
+            padding-left: 30px;
+        }
+        .bem-item {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .remove-bem {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            color: #dc3545;
+        }
     </style>
 </head>
 <body>
@@ -230,7 +258,9 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="valorMoveis" class="form-label">Qual o valor monetário?</label>
-                        <input type="text" class="form-control" id="valorMoveis" name="valorMoveis">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="valorMoveis" name="valorMoveis" data-type="currency">
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <label for="dataAquisicaoMoveis" class="form-label">Data de aquisição:</label>
@@ -242,40 +272,56 @@
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label for="computadoresValor" class="form-label">Computadores:</label>
-                        <input type="text" class="form-control" id="computadoresValor" name="computadoresValor" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="computadoresValor" name="computadoresValor" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="computadoresData" name="computadoresData" placeholder="Data de aquisição">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="impressorasValor" class="form-label">Impressoras:</label>
-                        <input type="text" class="form-control" id="impressorasValor" name="impressorasValor" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="impressorasValor" name="impressorasValor" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="impressorasData" name="impressorasData" placeholder="Data de aquisição">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="cadeirasValor" class="form-label">Cadeiras:</label>
-                        <input type="text" class="form-control" id="cadeirasValor" name="cadeirasValor" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="cadeirasValor" name="cadeirasValor" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="cadeirasData" name="cadeirasData" placeholder="Data de aquisição">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="mesasValor" class="form-label">Mesas:</label>
-                        <input type="text" class="form-control" id="mesasValor" name="mesasValor" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="mesasValor" name="mesasValor" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="mesasData" name="mesasData" placeholder="Data de aquisição">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="telefonesValor" class="form-label">Telefones:</label>
-                        <input type="text" class="form-control" id="telefonesValor" name="telefonesValor" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="telefonesValor" name="telefonesValor" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="telefonesData" name="telefonesData" placeholder="Data de aquisição">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="saldoConta" class="form-label">Saldo em conta:</label>
-                        <input type="text" class="form-control" id="saldoConta" name="saldoConta" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="saldoConta" name="saldoConta" placeholder="Valor" data-type="currency">
+                        </div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="aplicacoesFinanceiras" class="form-label">Aplicações financeiras:</label>
-                        <input type="text" class="form-control" id="aplicacoesFinanceiras" name="aplicacoesFinanceiras" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="aplicacoesFinanceiras" name="aplicacoesFinanceiras" placeholder="Valor" data-type="currency">
+                        </div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="estoqueValor" class="form-label">Estoque:</label>
-                        <input type="text" class="form-control" id="estoqueValor" name="estoqueValor" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="estoqueValor" name="estoqueValor" placeholder="Valor" data-type="currency">
+                        </div>
                     </div>
                 </div>
                 
@@ -283,20 +329,36 @@
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label for="duplicataReceber" class="form-label">Duplicata a receber:</label>
-                        <input type="text" class="form-control" id="duplicataReceber" name="duplicataReceber" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="duplicataReceber" name="duplicataReceber" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="duplicataData" name="duplicataData" placeholder="Data de recebimento">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="contasReceber" class="form-label">Contas a receber:</label>
-                        <input type="text" class="form-control" id="contasReceber" name="contasReceber" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="contasReceber" name="contasReceber" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="contasData" name="contasData" placeholder="Data de recebimento">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="impostosRecuperar" class="form-label">Impostos a recuperar:</label>
-                        <input type="text" class="form-control" id="impostosRecuperar" name="impostosRecuperar" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="impostosRecuperar" name="impostosRecuperar" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="impostosData" name="impostosData" placeholder="Data de recebimento">
                     </div>
                 </div>
+                
+                <!-- Nova Seção: Adicionar Bens/Equipamentos -->
+                <h5 class="mt-4">Adicionar Bens/Equipamentos</h5>
+                <div id="bens-adicionais-container">
+                    <!-- Itens serão adicionados dinamicamente aqui -->
+                </div>
+                
+                <button type="button" class="btn btn-outline-primary mt-3" id="adicionar-bem">
+                    <i class="bi bi-plus"></i> Adicionar Bem/Equipamento
+                </button>
             </div>
             
             <!-- Seção 7: Obrigações -->
@@ -307,12 +369,16 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="financiamentos" class="form-label">Financiamentos:</label>
-                        <input type="text" class="form-control" id="financiamentos" name="financiamentos" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="financiamentos" name="financiamentos" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="financiamentosVencimento" name="financiamentosVencimento" placeholder="Data de vencimento">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="emprestimos" class="form-label">Empréstimos:</label>
-                        <input type="text" class="form-control" id="emprestimos" name="emprestimos" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="emprestimos" name="emprestimos" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="emprestimosVencimento" name="emprestimosVencimento" placeholder="Data de vencimento">
                     </div>
                 </div>
@@ -321,27 +387,37 @@
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label for="agua" class="form-label">Água:</label>
-                        <input type="text" class="form-control" id="agua" name="agua" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="agua" name="agua" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="aguaVencimento" name="aguaVencimento" placeholder="Data de vencimento">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="energia" class="form-label">Energia:</label>
-                        <input type="text" class="form-control" id="energia" name="energia" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="energia" name="energia" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="energiaVencimento" name="energiaVencimento" placeholder="Data de vencimento">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="aluguel" class="form-label">Aluguel:</label>
-                        <input type="text" class="form-control" id="aluguel" name="aluguel" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="aluguel" name="aluguel" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="aluguelVencimento" name="aluguelVencimento" placeholder="Data de vencimento">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="salarios" class="form-label">Salários de funcionários:</label>
-                        <input type="text" class="form-control" id="salarios" name="salarios" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="salarios" name="salarios" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="salariosVencimento" name="salariosVencimento" placeholder="Data de vencimento">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="fornecedores" class="form-label">Fornecedores:</label>
-                        <input type="text" class="form-control" id="fornecedores" name="fornecedores" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="fornecedores" name="fornecedores" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="fornecedoresVencimento" name="fornecedoresVencimento" placeholder="Data de vencimento">
                     </div>
                 </div>
@@ -350,17 +426,23 @@
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label for="inss" class="form-label">INSS:</label>
-                        <input type="text" class="form-control" id="inss" name="inss" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="inss" name="inss" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="inssVencimento" name="inssVencimento" placeholder="Data de vencimento">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="fgts" class="form-label">FGTS:</label>
-                        <input type="text" class="form-control" id="fgts" name="fgts" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="fgts" name="fgts" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="fgtsVencimento" name="fgtsVencimento" placeholder="Data de vencimento">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="sat" class="form-label">SAT:</label>
-                        <input type="text" class="form-control" id="sat" name="sat" placeholder="Valor">
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="sat" name="sat" placeholder="Valor" data-type="currency">
+                        </div>
                         <input type="date" class="form-control mt-2" id="satVencimento" name="satVencimento" placeholder="Data de vencimento">
                     </div>
                 </div>
@@ -392,6 +474,52 @@
             } else {
                 qualDiv.style.display = 'none';
             }
+        });
+
+        // Formatação de campos monetários
+        document.querySelectorAll('[data-type="currency"]').forEach(input => {
+            input.addEventListener('input', formatCurrency);
+        });
+
+        function formatCurrency(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            value = (value / 100).toFixed(2) + '';
+            value = value.replace('.', ',');
+            value = value.replace(/(\d)(\d{3})(\d{3}),/g, '$1.$2.$3,');
+            value = value.replace(/(\d)(\d{3}),/g, '$1.$2,');
+            e.target.value = value;
+        }
+
+        // Adicionar bens/equipamentos dinamicamente
+        let bemCount = 0;
+        document.getElementById('adicionar-bem').addEventListener('click', function() {
+            bemCount++;
+            const container = document.getElementById('bens-adicionais-container');
+            const novoBem = document.createElement('div');
+            novoBem.className = 'bem-item';
+            novoBem.innerHTML = `
+                <span class="remove-bem" onclick="this.parentElement.remove()">×</span>
+                <div class="mb-3">
+                    <label for="bemNome${bemCount}" class="form-label">Nome do Bem/Equipamento</label>
+                    <input type="text" class="form-control" id="bemNome${bemCount}" name="bensAdicionais[${bemCount}][nome]" required>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="bemValor${bemCount}" class="form-label">Valor</label>
+                        <div class="money-input">
+                            <input type="text" class="form-control" id="bemValor${bemCount}" name="bensAdicionais[${bemCount}][valor]" data-type="currency" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="bemData${bemCount}" class="form-label">Data de aquisição</label>
+                        <input type="date" class="form-control" id="bemData${bemCount}" name="bensAdicionais[${bemCount}][data]" required>
+                    </div>
+                </div>
+            `;
+            container.appendChild(novoBem);
+            
+            // Adiciona o evento de formatação para o novo campo de valor
+            novoBem.querySelector('[data-type="currency"]').addEventListener('input', formatCurrency);
         });
     </script>
 </body>
